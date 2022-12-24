@@ -55,10 +55,10 @@ Archived.args = {
   }
 }
 
-export const AlgoNuevo = Template.bind({});
-AlgoNuevo.args = {
+export const New = Template.bind({});
+New.args = {
   task  : {
     ...Default.args.task!,
-    state: 'TASK_ALGO_NUEVO'
+    state: 'TASK_NEW'
   }
 }

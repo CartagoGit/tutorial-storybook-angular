@@ -17,6 +17,7 @@
     />
   </div>
   <div class="actions">
+    <div *ngIf="task?.state === 'TASK_NEW'" class="pin-new">NUEVO</div>
     <a *ngIf="task?.state !== 'TASK_ARCHIVED'" (click)="onPin(task.id)">
       <span class="icon-star"></span>
     </a>

@@ -20,7 +20,7 @@ export class PureTaskListComponent {
   /**
    * Propiedad del componente para definir el orden de las tareas.
    */
-  tasksInOrder: Task[] = [];
+  public tasksInOrder: Task[] = [];
 
   /** Comprueba si está en estado de carga */
   @Input() loading = false;
@@ -28,12 +28,13 @@ export class PureTaskListComponent {
   /** Evento para cambiar la tarea a anclada */
   // tslint:disable-next-line: no-output-on-prefix
   @Output()
-  onPinTask = new EventEmitter<Event>();
+  public onPinTask = new EventEmitter<string>();
 
   /** Evento para cambiar la tarea a archivada */
   // tslint:disable-next-line: no-output-on-prefix
   @Output()
-  onArchiveTask = new EventEmitter<Event>();
+  public onArchiveTask = new EventEmitter<string>();
 
   constructor() {}
+  
 }

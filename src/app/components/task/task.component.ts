@@ -9,22 +9,22 @@ import { Task } from 'src/app/models/task.model';
 export class TaskComponent {
   @Input() task: Task;
 
-  @Output() onPinTask = new EventEmitter<Event>();
-  @Output() onArchiveTask = new EventEmitter<Event>();
+  @Output() onPinTask = new EventEmitter<string>();
+  @Output() onArchiveTask = new EventEmitter<string>();
 
   constructor() {}
 
   /**
    * ? Metodo del componente para saltar en el evento onPin
    */
-  public onPin(id: any): void {
+  public onPin(id: string): void {
     this.onPinTask.emit(id);
   }
 
   /**
    * ? Metodo del componente para saltar en el evento onArchive
    */
-  public onArchive(id: any): void {
+  public onArchive(id: string): void {
     this.onArchiveTask.emit(id);
   }
 }

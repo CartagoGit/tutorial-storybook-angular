@@ -21,17 +21,17 @@ export default {
     }),
     //👇 Envuelve nuestras historias con un decorador
     componentWrapperDecorator(
-      (story) => `<div style="margin: 3em">${story}</div>`
+      (story) => `<h1>Lista de pura de Tareas (sync) desde las historias</h1><div style="margin: 3em">${story}</div>`
     ),
   ],
-  title: 'Tutorial/Compuesto/Lista de Tareas',
+  title: 'Tutorial/Usando Store/Lista de Tareas',
 } as Meta;
 
 const Template: Story<PureTaskListComponent> = (args) => ({
   props: {
     ...args,
     onPinTask: TaskStories.actionsData.onPinTask,
-    onArchivedTask: TaskStories.actionsData.onArchiveTask,
+    onArchiveTask: TaskStories.actionsData.onArchiveTask,
   },
 });
 

@@ -17,6 +17,7 @@ export class TaskListComponent {
    * Método de componente para activar el evento archiveTask
    */
   public archiveTask(id: string) {
+    console.log('onArchive', id);
     this.store.dispatch(new ArchiveTask(id));
   }
 
@@ -24,6 +25,7 @@ export class TaskListComponent {
    * Método de componente para activar el evento pinTask
    */
   public pinTask(id: string) {
+    console.log('onPin', id);
     this.store.dispatch(new PinTask(id));
   }
 }

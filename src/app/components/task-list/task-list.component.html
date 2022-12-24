@@ -34,6 +34,6 @@
 </div> -->
 <app-pure-task-list
   [tasks]="(tasks$ | async) || []"
-  (onArchiveTask)="archiveTask($event.toString())"
-  (onPinTask)="pinTask($event.toString())"
+  (onArchiveTask)="archiveTask($event)"
+  (onPinTask)="pinTask($event)"
 ></app-pure-task-list>

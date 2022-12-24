@@ -10,13 +10,13 @@ export const actions = {
 export class ArchiveTask {
   static readonly type = actions.ARCHIVE_TASK;
 
-  constructor(public payload: number) {}
+  constructor(public payload: string) {}
 }
 
 export class PinTask {
   static readonly type = actions.PIN_TASK;
 
-  constructor(public payload: number) {}
+  constructor(public payload: string) {}
 }
 
 // El estado inicial de nuestro store cuando se carga la aplicacion
@@ -49,7 +49,7 @@ const defaultTasks = {
 };
 
 export class TaskStateModel {
-  entities: { [id: number]: Task };
+  entities: { [id: string]: Task };
 }
 
 // Establece el estado predeterminado
@@ -59,9 +59,9 @@ export class TaskStateModel {
     entities: defaultTasks,
   },
 })
-export class TaskState {
+export class TasksState {
   @Selector()
-  static getAllTasks(state: TaskStateModel) {
+  static getAllTasks(state: TaskStateModel): Task[] {
     const entities = state.entities;
     return Object.keys(entities).map((id) => entities[+id]);
   }
@@ -73,13 +73,6 @@ export class TaskState {
     stateContext: StateContext<TaskStateModel>,
     { payload }: PinTask
   ): void {
-    // const state = getState().entities;
-    // const entities = {
-    //   ...state,
-    //   [payload]: { ...state[payload], state: 'TASK_PINNED' },
-    // };
-
-    // patchState({ entities });
     this._changeTaskState(stateContext, payload, 'TASK_PINNED');
   }
 
@@ -100,7 +93,7 @@ export class TaskState {
    */
   private _changeTaskState(
     { patchState, getState }: StateContext<TaskStateModel>,
-    payload: number,
+    payload: string,
     newState: string
   ): void {
     const state = getState().entities;

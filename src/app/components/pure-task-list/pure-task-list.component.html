@@ -1,16 +1,5 @@
-<!-- <div class="list-items">
-  <div *ngIf="loading">loading</div>
-  <div *ngIf="!loading && tasks.length === 0">empty</div>
-  <app-task
-    *ngFor="let task of tasks"
-    [task]="task"
-    (onArchiveTask)="onArchiveTask.emit($event)"
-    (onPinTask)="onPinTask.emit($event)"
-  >
-  </app-task>
-</div> -->
 
-<!-- <div class="list-items">
+<div class="list-items">
   <app-task
     *ngFor="let task of tasksInOrder"
     [task]="task"
@@ -31,9 +20,4 @@
       </span>
     </div>
   </div>
-</div> -->
-<app-pure-task-list
-  [tasks]="(tasks$ | async) || []"
-  (onArchiveTask)="archiveTask($event.toString())"
-  (onPinTask)="pinTask($event.toString())"
-></app-pure-task-list>
+</div>

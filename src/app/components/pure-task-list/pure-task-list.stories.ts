@@ -61,7 +61,6 @@ RandomTasks.args = {
     .fill(null)
     .map((_elem, index) => {
       const rand = Math.floor(Math.random() * 4);
-      console.log(rand);
       return {
         ...TaskStories.Default.args?.task!,
         id: index.toString(),

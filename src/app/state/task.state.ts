@@ -5,6 +5,8 @@ import { Task } from '../models/task.model';
 export const actions = {
   ARCHIVE_TASK: 'ARCHIVE_TASK',
   PIN_TASK: 'PIN_TASK',
+  // Define el nuevo campo de error que necesitamos
+  ERROR: 'APP_ERROR',
 };
 
 export class ArchiveTask {
@@ -17,6 +19,12 @@ export class PinTask {
   static readonly type = actions.PIN_TASK;
 
   constructor(public payload: string) {}
+}
+
+// La definición de clase para nuestro campo de error.
+export class AppError {
+  static readonly type = actions.ERROR;
+  constructor(public payload: boolean) {}
 }
 
 // El estado inicial de nuestro store cuando se carga la aplicacion
@@ -50,6 +58,7 @@ const defaultTasks = {
 
 export class TaskStateModel {
   entities: { [id: string]: Task };
+  error: boolean;
 }
 
 // Establece el estado predeterminado
@@ -57,6 +66,7 @@ export class TaskStateModel {
   name: 'tasks',
   defaults: {
     entities: defaultTasks,
+    error: false,
   },
 })
 export class TasksState {
@@ -64,6 +74,12 @@ export class TasksState {
   static getAllTasks(state: TaskStateModel): Task[] {
     const entities = state.entities;
     return Object.keys(entities).map((id) => entities[+id]);
+  }
+  // Define un nuevo selector para el campo de error.
+  @Selector()
+  static getError(state: TaskStateModel) {
+    const { error } = state;
+    return error;
   }
 
   // Activa la accion PinTask, similar a redux
@@ -83,6 +99,18 @@ export class TasksState {
     { payload }: ArchiveTask
   ): void {
     this._changeTaskState(stateContext, payload, 'TASK_ARCHIVED');
+  }
+
+  // Función para manejar cómo se debe actualizar el estado cuando se activa la acción
+  @Action(AppError)
+  setAppError(
+    { patchState, getState }: StateContext<TaskStateModel>,
+    { payload }: AppError
+  ) {
+    const state = getState();
+    patchState({
+      error: !state.error,
+    });
   }
 
   /**

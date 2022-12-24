@@ -12,7 +12,7 @@ export default {
     }),
   ],
   excludeStories: /.*Data$/,
-  title: 'Tarea',
+  title: 'Tutorial/Simple/Tarea',
 } as Meta;
 
 export const actionsData = {
@@ -21,7 +21,7 @@ export const actionsData = {
 };
 
 const Template: Story<TaskComponent> = (args) => ({
-  component: TaskComponent,
+  // component: TaskComponent,
   props: {
     ...args,
     onPinTask: actionsData.onPinTask,
@@ -52,5 +52,13 @@ Archived.args = {
   task  : {
     ...Default.args.task!,
     state: 'TASK_ARCHIVED'
+  }
+}
+
+export const AlgoNuevo = Template.bind({});
+AlgoNuevo.args = {
+  task  : {
+    ...Default.args.task!,
+    state: 'TASK_ALGO_NUEVO'
   }
 }

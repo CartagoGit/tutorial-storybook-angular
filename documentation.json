@@ -2,6 +2,56 @@
     "pipes": [],
     "interfaces": [
         {
+            "name": "Task",
+            "id": "interface-Task-ab862794157eff24601f25619daa6dfa3d30f24863950b50d5cf27cd28d6ce0a24876718a178ce9c9fd44c383a9cf8a8621a8ff5a8ed12f341e6a39684b5d982",
+            "file": "src/app/models/task.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface Task {\r\n  id: string;\r\n  title: string;\r\n  state: string;\r\n  updatedAt: Date;\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "state",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                },
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "updatedAt",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Date",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        },
+        {
             "name": "User",
             "id": "interface-User-9c7e5f1bbbab702cb032307d130876cb68969b0cd4eedef32a0c8cad8081a54e5f8f577ed6ad4539c1b99a1d246cb34031d198c2ea8eba440e64e91b14f01fdc",
             "file": "src/stories/User.ts",
@@ -350,7 +400,7 @@
         },
         {
             "name": "TaskComponent",
-            "id": "component-TaskComponent-2c4e9b92f2fab7b4d8128cd8e0cda790598820aa8123fae3a2ed47bc9b199cbc93c55508e1174c67ed73d7787761d37813722f7b231f2140ca64b20122a029e7",
+            "id": "component-TaskComponent-9e21bdcf27725a054e4c4b6d68c4fd3dd0841001b24b0ba24b6403ccd94fb059ea45d2f0b636f445ff4db010f0123753ef67b22444d549e3547e52e9bee23ec4",
             "file": "src/app/components/task/task.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -371,8 +421,8 @@
                     "name": "task",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 9,
-                    "type": "any",
+                    "line": 10,
+                    "type": "Task",
                     "decorators": []
                 }
             ],
@@ -382,7 +432,7 @@
                     "defaultValue": "new EventEmitter<Event>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 13,
                     "type": "EventEmitter"
                 },
                 {
@@ -390,12 +440,79 @@
                     "defaultValue": "new EventEmitter<Event>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
+                    "line": 12,
                     "type": "EventEmitter"
                 }
             ],
             "propertiesClass": [],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "onArchive",
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 27,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\n? Metodo del componente para saltar en el evento onArchive\n",
+                    "description": "<p>? Metodo del componente para saltar en el evento onArchive</p>\n",
+                    "modifierKind": [
+                        123
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "id",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onPin",
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 20,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\n? Metodo del componente para saltar en el evento onPin\n",
+                    "description": "<p>? Metodo del componente para saltar en el evento onPin</p>\n",
+                    "modifierKind": [
+                        123
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "id",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -403,7 +520,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'app-task',\n  templateUrl: './task.component.html',\n  styleUrls: ['./task.component.css']\n})\nexport class TaskComponent {\n  @Input() task: any;\n\n  @Output() onPinTask = new EventEmitter<Event>();\n  @Output()onArchiveTask = new EventEmitter<Event>();\n\n  constructor() { }\n\n\n\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { Task } from 'src/app/models/task.model';\n\n@Component({\n  selector: 'app-task',\n  templateUrl: './task.component.html',\n  styleUrls: ['./task.component.css'],\n})\nexport class TaskComponent {\n  @Input() task: Task;\n\n  @Output() onPinTask = new EventEmitter<Event>();\n  @Output() onArchiveTask = new EventEmitter<Event>();\n\n  constructor() {}\n\n  /**\n   * ? Metodo del componente para saltar en el evento onPin\n   */\n  public onPin(id: any): void {\n    this.onPinTask.emit(id);\n  }\n\n  /**\n   * ? Metodo del componente para saltar en el evento onArchive\n   */\n  public onArchive(id: any): void {\n    this.onArchiveTask.emit(id);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -418,9 +535,9 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 12
+                "line": 13
             },
-            "templateData": "<div class=\"list-item\">\n  <input type=\"text\" readonly=\"true\" [value]=\"task.title\">\n</div>\n"
+            "templateData": "<div class=\"list-item {{ task.state }}\">\n  <label class=\"checkbox\">\n    <input\n      type=\"checkbox\"\n      [defaultChecked]=\"task.state === 'TASK_ARCHIVED'\"\n      disabled=\"true\"\n      name=\"checked\"\n    />\n    <span class=\"checkbox-custom\" (click)=\"onArchive(task.id)\"></span>\n  </label>\n  <div class=\"title\">\n    <input\n      type=\"text\"\n      [value]=\"task.title\"\n      readonly=\"true\"\n      placeholder=\"Input title\"\n    />\n  </div>\n  <div class=\"actions\">\n    <a *ngIf=\"task?.state !== 'TASK_ARCHIVED'\" (click)=\"onPin(task.id)\">\n      <span class=\"icon-star\"></span>\n    </a>\n  </div>\n</div>\n"
         }
     ],
     "modules": [
@@ -858,7 +975,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 3,
+        "count": 4,
         "status": "low",
         "files": [
             {
@@ -875,9 +992,9 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "TaskComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/5",
-                "status": "low"
+                "coveragePercent": 28,
+                "coverageCount": "2/7",
+                "status": "medium"
             },
             {
                 "filePath": "src/app/components/task/task.stories.ts",
@@ -927,6 +1044,15 @@
                 "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/models/task.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "Task",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {

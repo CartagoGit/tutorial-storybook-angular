@@ -1,0 +1,17 @@
+.actions {
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  font-size: 18px;
+  -webkit-text-stroke: 1px #2cc5d2;
+  color: transparent;
+}
+a{
+  all: unset;
+  display: flex;
+  cursor: pointer;
+}

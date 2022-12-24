@@ -602,6 +602,16 @@
                 "defaultValue": "{\r\n  onPinTask: action('onPinTask'),\r\n  onArchiveTask: action('onArchiveTask'),\r\n}"
             },
             {
+                "name": "AlgoNuevo",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/task/task.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Archived",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -769,7 +779,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<TaskComponent>",
-                "defaultValue": "(args) => ({\r\n  component: TaskComponent,\r\n  props: {\r\n    ...args,\r\n    onPinTask: actionsData.onPinTask,\r\n    onArchiveTask: actionsData.onArchiveTask,\r\n  },\r\n})"
+                "defaultValue": "(args) => ({\r\n  // component: TaskComponent,\r\n  props: {\r\n    ...args,\r\n    onPinTask: actionsData.onPinTask,\r\n    onArchiveTask: actionsData.onArchiveTask,\r\n  },\r\n})"
             }
         ],
         "functions": [],
@@ -786,6 +796,16 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{\r\n  onPinTask: action('onPinTask'),\r\n  onArchiveTask: action('onArchiveTask'),\r\n}"
+                },
+                {
+                    "name": "AlgoNuevo",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/task/task.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
                 },
                 {
                     "name": "Archived",
@@ -825,7 +845,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<TaskComponent>",
-                    "defaultValue": "(args) => ({\r\n  component: TaskComponent,\r\n  props: {\r\n    ...args,\r\n    onPinTask: actionsData.onPinTask,\r\n    onArchiveTask: actionsData.onArchiveTask,\r\n  },\r\n})"
+                    "defaultValue": "(args) => ({\r\n  // component: TaskComponent,\r\n  props: {\r\n    ...args,\r\n    onPinTask: actionsData.onPinTask,\r\n    onArchiveTask: actionsData.onArchiveTask,\r\n  },\r\n})"
                 }
             ],
             "src/environments/environment.prod.ts": [
@@ -1002,6 +1022,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "actionsData",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/task/task.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "AlgoNuevo",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
